@@ -1,3 +1,5 @@
+import { renderBorrowedBookCard } from "../main.js";
+
 class Member {
     constructor(name, memberId) {
         this.name = name,
@@ -5,8 +7,13 @@ class Member {
         this.borrowedBooks = []
     }
 
-    borrowBook(book) {
-        
+    borrowBook(book, container) {
+        this.borrowedBooks.push(book);
+
+        if(container) {
+            const newCard = renderBorrowedBookCard(book);
+            container.appendChild(newCard);
+        }
     }
 
     returnBook(book) {

@@ -53,12 +53,26 @@ class Book {
   }
 
   return() {
-    if (!this.isAvailabe) {
-      this.isAvailabe = true;
-      alert(`Buku ${this.title} Berhasil Dikembalikan`);
-    } else {
-      alert(`Buku ${this.title} Sudah Tersedia`);
-    }
+    this.isAvailabe = true;
+
+    const returnSuccessAlert = document.getElementById("return-success-alert");
+
+    returnSuccessAlert.innerHTML = `
+      <div class="relative rounded-full size-20 border-2 border-indigo-600 text-2xl">
+        <i class="fa-solid fa-check text-indigo-600 absolute top-1/2 left-1/2 -translate-1/2"></i>
+      </div>
+      <span class="font-semibold text-sm text-center lg:text-xl">
+        Anda Berhasil Mengembalikan Buku ${this.title}
+      </span>
+    `;
+
+    borrowSuccessAlert.classList.remove("scale-0");
+    borrowSuccessAlert.classList.add("scale-100");
+
+    setTimeout(() => {
+      borrowSuccessAlert.classList.remove("scale-100");
+      borrowSuccessAlert.classList.add("scale-0");
+    }, 1500);
   }
 }
 
