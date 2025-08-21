@@ -1,14 +1,16 @@
+import Member from "./Member.js";
+
 class Book {
   constructor(title, author, img) {
     (this.title = title),
       (this.author = author),
       (this.img = img),
-      (this.isAvailabe = true);
+      (this.isAvailable = true);
   }
 
   borrow() {
-    if (this.isAvailabe) {
-      this.isAvailabe = false;
+    if (this.isAvailable) {
+      this.isAvailable = false;
 
       const borrowSuccessAlert = document.getElementById(
         "borrow-success-alert"
@@ -53,7 +55,7 @@ class Book {
   }
 
   return() {
-    this.isAvailabe = true;
+    this.isAvailable = true;
 
     const returnSuccessAlert = document.getElementById("return-success-alert");
 
